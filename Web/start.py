@@ -1,5 +1,11 @@
 from flask import Flask  
   
+airteltv = {
+"suntv" : "",
+"zeetamil" : "",
+"ktv":""
+}
+
 app = Flask(__name__) #creating the Flask class object   
  
 @app.route('/') #decorator drfines the   
@@ -7,7 +13,10 @@ def home():
     return "hello, this is our first flask website";  
   
 
-
+@app.route('/airtel/<name>')  
+def playAirtel(name): 
+    ptv = airteltv[name]
+    return "hello,"+name;  
 
 
 def download_ts(domain, path, url_list):
