@@ -16,6 +16,10 @@ def home():
 @app.route('/airtel/<name>')  
 def playAirtel(name): 
     ptv = airteltv[name]
+    data =requests.get(ptv, headers={"content-type":"text"}, stream=True)
+    for chunk in data.iter_content(chunk_size=512):
+	if chunk:
+	   f.write(chunk)
     return "hello,"+name;  
 
 
