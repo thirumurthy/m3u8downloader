@@ -26,6 +26,22 @@ def playAirtel(name):
     return Response(stream_with_context(generate()))
 
 
+@app.route('/airtel/ts/<name>')  
+def tsAirtel(name): 
+    ptv = airteltv[name]
+
+    def generate():
+      data =requests.get(ptv, headers={"content-type":"text"}, stream=True)
+      for chunk in data.iter_content(chunk_size=512):
+	if chunk:
+	  yield chunk
+
+    return Response(stream_with_context(generate()))
+
+
+
+
+
 def download_ts(domain, path, url_list):
 	ts_files = []
 	for url in url_list:
