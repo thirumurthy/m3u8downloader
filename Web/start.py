@@ -2,7 +2,7 @@ from flask import Flask, stream_with_context, Response
 
 airteltv = {
 "suntv" : "",
-"zeetamil" : "",
+"zeetamil" : "http://cshms2.airtel.tv/wh7f454c46tw3547367093_1434011504/PLTV/88888888/224/3221225929/index.m3u8",
 "ktv":""
 }
 
